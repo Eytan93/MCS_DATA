@@ -73,3 +73,62 @@ plt.errorbar(p_surf_df_sample,Surf_elev_df_sample, xerr=p_surf_err_df_sample, fm
 plt.xlabel('Surface Pressure (Pa)')
 plt.ylabel('Surface Elevation(m)')
 
+new_df = df[((Surf_elev_df >= -3.632) & (Surf_elev_df  <= -3.631))]
+new_df2 = df[((Surf_elev_df >= -4.508) & (Surf_elev_df  <= -4.504))]
+
+
+UTC_new_df = new_df['UTC']
+MY_new_df = new_df['MY'] 
+L_s_new_df = new_df['L_s']
+LTST_new_df = new_df['LTST'] 
+Surf_lat_new_df = new_df['Surf_lat'] 
+Surf_lon_new_df = new_df['Surf_lon'] 
+Surf_rad_new_df = new_df['Surf_rad'] 
+Surf_elev_new_df = new_df['Surf_elev'] 
+T_surf_new_df = new_df['T_surf'] 
+T_surf_err_new_df = new_df['T_surf_err'] 
+Dust_column_new_df = new_df['Dust_column'] 
+Dust_column_err_new_df = new_df['Dust_column_err'] 
+H2Oice_column_new_df = new_df['H2Oice_column']
+H2Oice_column_err_new_df = new_df['H2Oice_column_err'] 
+p_surf_new_df = new_df['p_surf'] 
+p_surf_err_new_df = new_df['p_surf_err']
+P_qual_new_df = new_df['P_qual'] 
+T_qual_new_df = new_df['T_qual']
+
+UTC_new_df2 = new_df2['UTC']
+MY_new_df2 = new_df2['MY'] 
+L_s_new_df2 = new_df2['L_s']
+LTST_new_df2 = new_df2['LTST'] 
+Surf_lat_new_df2 = new_df2['Surf_lat'] 
+Surf_lon_new_df2 = new_df2['Surf_lon'] 
+Surf_rad_new_df2 = new_df2['Surf_rad'] 
+Surf_elev_new_df2 = new_df2['Surf_elev'] 
+T_surf_new_df2 = new_df2['T_surf'] 
+T_surf_err_new_df2 = new_df2['T_surf_err'] 
+Dust_column_new_df2 = new_df2['Dust_column'] 
+Dust_column_err_new_df2 = new_df2['Dust_column_err'] 
+H2Oice_column_new_df2 = new_df2['H2Oice_column']
+H2Oice_column_err_new_df2 = new_df2['H2Oice_column_err'] 
+p_surf_new_df2 = new_df2['p_surf'] 
+p_surf_err_new_df2 = new_df2['p_surf_err']
+P_qual_new_df2 = new_df2['P_qual'] 
+T_qual_new_df2 = new_df2['T_qual']
+
+
+
+plt.scatter(L_s_new_df,p_surf_new_df, s = 10)
+plt.axhline(800, c='red', linestyle='--')
+plt.ylabel('Pressure (Pa)')
+plt.xlabel('$\mathregular{L_s}$')
+
+
+
+plt.scatter(L_s_new_df,T_surf_new_df, s = 10)
+plt.ylabel('T')
+plt.xlabel('$\mathregular{L_s}$')
+
+plt.scatter(L_s_new_df2,p_surf_new_df2,s = 10)
+plt.axhline(875, c='red', linestyle='--')
+plt.ylabel('Pressure (Pa)')
+plt.xlabel('$\mathregular{L_s}$')
