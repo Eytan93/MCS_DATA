@@ -1,0 +1,75 @@
+import pandas as pd 
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+df = pd.read_csv('../eytangarybicas/Downloads/surf_bT_ret_171031.txt', header=None, delimiter=r"\s+", names = [' ', 'UTC', 'MY', 'L_s', 'LTST', 'Surf_lat', 'Surf_lon', 'Surf_rad', 'Surf_elev', 'T_surf', 'T_surf_err', 'Dust_column', 'Dust_column_err', 'H2Oice_column', 'H2Oice_column_err', 'p_surf', 'p_surf_err', 'P_qual', 'T_qual'])
+
+
+UTC_df = df['UTC']
+MY_df = df['MY'] 
+L_s_df = df['L_s']
+LTST_df = df['LTST'] 
+Surf_lat_df = df['Surf_lat'] 
+Surf_lon_df = df['Surf_lon'] 
+Surf_rad_df = df['Surf_rad'] 
+Surf_elev_df = df['Surf_elev'] 
+T_surf_df = df['T_surf'] 
+T_surf_err_df = df['T_surf_err'] 
+Dust_column_df = df['Dust_column'] 
+Dust_column_err_df = df['Dust_column_err'] 
+H2Oice_column_df = df['H2Oice_column']
+H2Oice_column_err_df = df['H2Oice_column_err'] 
+p_surf_df = df['p_surf'] 
+p_surf_err_df = df['p_surf_err']
+P_qual_df = df['P_qual'] 
+T_qual_df = df['T_qual']
+
+UTC_df_sample = UTC_df.head(25)
+MY_df_sample = MY_df.head(25)
+L_s_df_sample = L_s_df.head(25)
+LTST_df_sample = LTST_df.head(25)
+Surf_lat_df_sample = Surf_lat_df.head(25)
+Surf_lon_df_sample = Surf_lon_df.head(25)
+Surf_rad_df_sample = Surf_rad_df.head(25)
+Surf_elev_df_sample = Surf_elev_df.head(25)
+T_surf_df_sample = T_surf_df.head(25)
+T_surf_err_sample = T_surf_err_df.head(25)
+Dust_column_df_sample = Dust_column_df.head(25)
+Dust_column_err_df_sample = Dust_column_err_df.head(25)
+H2Oice_column_df_sample = H2Oice_column_df.head(25)
+H2Oice_column_err_df_sample = H2Oice_column_err_df.head(25)
+p_surf_df_sample = p_surf_df.head(25)
+p_surf_err_df_sample = p_surf_err_df.head(25)
+P_qual_df_sample = P_qual_df.head(25)
+
+
+plt.scatter(T_surf_df_sample,Surf_elev_df_sample)
+plt.errorbar(T_surf_df_sample,Surf_elev_df_sample, xerr=T_surf_err_sample, fmt='|')
+plt.xlabel('Surface Temperature (K)')
+plt.ylabel('Surface Elevation(m)')
+T_qual_df_sample = T_qual_df.head(25)
+
+
+
+
+plt.scatter(Dust_column_df_sample,Surf_elev_df_sample)
+plt.errorbar(Dust_column_df_sample,Surf_elev_df_sample, xerr=Dust_column_err_df_sample, fmt='|')
+plt.xlabel('Dust Column')
+plt.ylabel('Surface Elevation(m)')
+
+
+
+
+plt.scatter(H2Oice_column_df_sample,Surf_elev_df_sample)
+plt.errorbar(H2Oice_column_df_sample,Surf_elev_df_sample, xerr=H2Oice_column_err_df_sample, fmt='|')
+plt.xlabel('H2O Ice Column')
+plt.ylabel('Surface Elevation(m)')
+
+
+
+plt.scatter(p_surf_df_sample,Surf_elev_df_sample)
+plt.errorbar(p_surf_df_sample,Surf_elev_df_sample, xerr=p_surf_err_df_sample, fmt='o')
+plt.xlabel('Surface Pressure (Pa)')
+plt.ylabel('Surface Elevation(m)')
+
